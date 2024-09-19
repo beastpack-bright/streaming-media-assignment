@@ -34,8 +34,8 @@ const loadFile = (request, response, filePath, contentType) => {
     const stream = fs.createReadStream(fullPath, { start, end });
     stream.on('open', () => stream.pipe(response));
     stream.on('error', (streamErr) => response.end(streamErr));
+    return loadFile;
   });
-  return loadFile;
 };
 
 const getParty = (request, response) => {
